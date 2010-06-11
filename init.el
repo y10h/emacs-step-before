@@ -51,3 +51,5 @@ suitable for binding to keys."
 (load-init
  '(general frame lang funs modes keys
    bs eshell custom))
+
+(color-theme-pastels-on-dark)
