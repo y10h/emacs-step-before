@@ -24,10 +24,10 @@
  make-backup-files nil               ;; NO annoing backups
  vc-follow-symlinks t                ;; follow symlinks and don't ask
  echo-keystrokes 0.01                ;; see what you type
- scroll-conservatively 0             ;; text scrolling
- scroll-preserve-screen-position nil
- scroll-margin 5
- scroll-step 1                       ;; Scroll by one line at a time
+ scroll-conservatively 10000         ;; text scrolling
+ scroll-preserve-screen-position 1
+ scroll-margin 0
+ scroll-step 1
  comint-completion-addsuffix t       ;; Insert space/slash after completion
  kill-whole-line t                   ;; delete line in one stage
  default-major-mode 'text-mode       ;; default mode
