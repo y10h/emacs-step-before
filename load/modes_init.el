@@ -159,8 +159,8 @@
     fallback))
 
 (when (load "flymake" t)
-  (setq pyflakes-exe (find-executable "/opt/local/bin/pyflakes" "pyflakes"))
-  (setq luac-exe (find-executable "/opt/local/bin/luac" "luac"))
+  (setq pyflakes-exe (find-executable "/usr/bin/pyflakes" "pyflakes"))
+  (setq luac-exe (find-executable "/usr/bin/luac" "luac"))
 
   (defun flymake-pyflakes-init ()
     (let* ((temp-file (flymake-init-create-temp-buffer-copy
