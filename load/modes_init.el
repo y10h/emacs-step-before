@@ -158,44 +158,6 @@
       path
     fallback))
 
-(when (load "flymake" t)
-  (setq pyflakes-exe (find-executable "/usr/bin/pyflakes" "pyflakes"))
-  (setq luac-exe (find-executable "/usr/bin/luac" "luac"))
-
-  (defun flymake-pyflakes-init ()
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                       'flymake-create-temp-inplace))
-           (local-file (file-relative-name
-                        temp-file
-                        (file-name-directory buffer-file-name))))
-      (list pyflakes-exe (list local-file))))
-
-  (defun flymake-lua-init ()
-    "Invoke luac with '-p' to get syntax checking"
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                       'flymake-create-temp-inplace))
-           (local-file (file-relative-name
-                        temp-file
-                        (file-name-directory buffer-file-name))))
-      (list luac-exe (list "-p" local-file))))
-
-  (add-to-list 'flymake-allowed-file-name-masks
-               '("\\.py\\'" flymake-pyflakes-init))
-  (add-to-list 'flymake-allowed-file-name-masks
-               '("\\.lua\\'" flymake-lua-init))
-  (push '("^.*luac[0-9.]*\\(.exe\\)?: *\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 2 3 nil 4)
-        flymake-err-line-patterns))
-
-(add-hook 'python-mode-hook '(lambda () (flymake-mode 1)))
-(add-hook 'lua-mode-hook '(lambda () (flymake-mode 1)))
-
-(set-face-attribute 'flymake-errline nil
-                    :background 'unspecified
-                    :underline "orange")
-(setq flymake-gui-warnings-enabled nil)
-
-(require 'flymake-point nil t)
-
 ;; Lua
 
 (defvaralias 'lua-indent-level 'tab-width)
