@@ -75,9 +75,6 @@
 
 (require 'whitespace)
 (setq whitespace-style '(lines-tail trailing))
-(set-face-attribute 'whitespace-line nil
-                    :foreground 'unspecified
-                    :background "yellow")
 
 (setq hooks-with-whitespaces
       '(factor-mode-hook
