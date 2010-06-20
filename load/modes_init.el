@@ -231,6 +231,7 @@
     (progn
       (smex-initialize)
       (smex-auto-update)
+      (setq smex-save-file "~/.emacs.d/smex.save")
       (global-set-key (kbd "M-x") 'smex)
       (global-set-key (kbd "M-X") 'smex-major-mode-commands)
       (global-set-key (kbd "C-c M-x") 'smex-update-and-run)
