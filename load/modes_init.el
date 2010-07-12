@@ -2,6 +2,8 @@
 
 ;(autoload 'gnus "gnus" "Best email client ever" t)
 
+(require 'magit)
+
 (require 'imenu)
 (autoload 'filladapt-mode "filladapt" "Minor mode to adaptively set fill-prefix and overload filling functions" t)
 (autoload 'htmlize-buffer "htmlize" "Convert buffer text and decorations to HTML" t)
