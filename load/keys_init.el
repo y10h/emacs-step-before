@@ -3,6 +3,8 @@
 (global-set-key (kbd "C-.") 'ido-switch-buffer)
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
+(global-set-key (kbd "C-x g") 'magit-status)
+
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "M-?") 'help-command)
