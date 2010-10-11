@@ -2,8 +2,6 @@
 
 ;(autoload 'gnus "gnus" "Best email client ever" t)
 
-(require 'magit)
-
 (require 'imenu)
 (autoload 'filladapt-mode "filladapt" "Minor mode to adaptively set fill-prefix and overload filling functions" t)
 (autoload 'htmlize-buffer "htmlize" "Convert buffer text and decorations to HTML" t)
@@ -14,6 +12,9 @@
 
 (autoload 'session-initialize "session" "Use variables, registers and buffer places across sessions" t)
 (add-hook 'after-init-hook 'session-initialize)
+
+(require 'fic-mode)
+(add-hook 'python-mode-hook 'turn-on-fic-mode)
 
 ;; dired
 (setq
