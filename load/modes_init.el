@@ -74,6 +74,7 @@
 (autoload 'io-mode "io-mode" "Major mode for editing Io sources" t)
 (autoload 'yaml-mode "yaml-mode" nil t)
 (autoload 'lua-mode "lua-mode" nil t)
+(autoload 'erlang-mode "erlang" nil t)
 (load "fuel/fu" t)
 
 (require 'whitespace)
@@ -165,37 +166,6 @@
 
 (defvaralias 'lua-indent-level 'tab-width)
 (add-hook 'lua-mode-hook (lambda () (setq indent-tabs-mode t)))
-
-;; Erlang
-
-(when (file-directory-p "~/var/distel/elisp")
-  (add-to-list 'load-path "~/var/distel/elisp"))
-(autoload 'distel-setup "distel" nil t)
-
-(defconst distel-shell-keys
-  '(("\C-\M-i"   erl-complete)
-    ("\M-?"      dabbrev-expand)
-    ("\M-/"      dabbrev-expand)
-    ("\M-."      erl-find-source-under-point)
-    ("\M-,"      erl-find-source-unwind)
-    ("\M-*"      erl-find-source-unwind)
-    )
-  "Additional keys to bind when in Erlang shell.")
-
-(eval-after-load "erlang"
-  '(progn
-     (distel-setup)
-     (define-key erlang-extended-mode-map (kbd "RET") 'newline-maybe-indent)
-     (define-key erlang-extended-mode-map (kbd "M-/") 'dabbrev-expand)
-     (add-hook 'erlang-shell-mode-hook
-               (lambda ()
-                 ;; add some Distel bindings to the Erlang shell
-                 (dolist (spec distel-shell-keys)
-                   (define-key erlang-shell-mode-map (car spec) (cadr spec)))))
-     (add-hook 'erlang-mode-hook
-               (lambda ()
-                 ;; when starting an Erlang shell in Emacs, default in the node name
-                 (setq inferior-erlang-machine-options '("-sname" "emacs"))))))
 
 ;; Snippets
 
