@@ -162,6 +162,9 @@
       path
     fallback))
 
+;; Devlock
+(load "~/.emacs.d/packages/develock-py.el")
+
 ;; Lua
 
 (defvaralias 'lua-indent-level 'tab-width)
