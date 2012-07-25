@@ -52,4 +52,4 @@ suitable for binding to keys."
  '(general frame lang funs modes keys
    bs eshell custom))
 
-(color-theme-solarized-light)
+(color-theme-xemacs)
